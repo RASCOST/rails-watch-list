@@ -4,4 +4,6 @@
     <li><%= link_to(movie.title, movie_path(movie)) %></li>
   <% end %>
 </ul>
-<%= link_to('Add movie', new_movie_path) %>
+<%= link_to('Add movie', new_movie_path) %> |
+<%= link_to('Add List', new_list_path) %> |
+<%= link_to('My List', lists_path) %>
