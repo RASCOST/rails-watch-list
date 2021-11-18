@@ -5,8 +5,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    @bookmarks = Bookmark.where(list_id: params[:id])
-    @movies = Movie.all
+    # @bookmarks = Bookmark.where(list_id: params[:id])
+    @movies = Movie.joins(:bookmarks).joins(:lists)
   end
 
   def new
@@ -15,7 +15,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-
     if @list.save
       redirect_to list_path(@list)
     else

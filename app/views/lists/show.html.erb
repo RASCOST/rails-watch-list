@@ -1,6 +1,6 @@
 <h1><%= @list.name %></h1>
 <% @movies.each do |movie| %>
-
+  <li><%= movie.title %> <%= link_to('delete', bookmark_path(movie), method: :delete, data: {confirm: "Are you sure?"}) %></li>
 <% end %>
 <%= link_to('Lists', lists_path) %> |
 <%= link_to('New Bookmark', new_list_bookmark_path(@list)) %>
